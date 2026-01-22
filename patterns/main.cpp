@@ -27,6 +27,7 @@ struct Functions
     func pattern19;
     func pattern20;
     func pattern21;
+    func pattern22;
 };
 
 void pattern1(int n)
@@ -375,10 +376,27 @@ void pattern21(int n)
         }
     }
 }
+void pattern22(int n)
+{
+    for (int i = 0; i < 2 * n - 1; i++)
+    {
+        for (int j = 0; j < 2 * n - 1; j++)
+        {
+            int top = i;
+            int left = j;
+            int right = (2 * n - 2) - j;
+            int down = (2 * n - 2) - i;
+
+            cout << (n - min(min(top, down), min(left, right))) << " ";
+        }
+
+        cout << endl;
+    }
+}
 
 int main(int argc, char const *argv[])
 {
-    int n = 5;
+    int n = 4;
 
     func patternArray[] = {
         pattern1,
@@ -401,7 +419,8 @@ int main(int argc, char const *argv[])
         pattern18,
         pattern19,
         pattern20,
-        pattern21};
+        pattern21,
+        pattern22};
 
     int numPatterns = sizeof(patternArray) / sizeof(patternArray[0]);
 
