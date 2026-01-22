@@ -21,6 +21,7 @@ struct Functions
     func pattern13;
     func pattern14;
     func pattern15;
+    func pattern16;
 };
 
 void pattern1(int n)
@@ -226,6 +227,19 @@ void pattern15(int n)
         cout << endl;
     }
 }
+void pattern16(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        char ch = 'A' + i;
+        for (int j = 0; j <= i; j++)
+        {
+            cout << ch << " ";
+        }
+
+        cout << endl;
+    }
+}
 
 int main(int argc, char const *argv[])
 {
@@ -246,7 +260,8 @@ int main(int argc, char const *argv[])
         pattern12,
         pattern13,
         pattern14,
-        pattern15};
+        pattern15,
+        pattern16};
 
     int numPatterns = sizeof(patternArray) / sizeof(patternArray[0]);
 
