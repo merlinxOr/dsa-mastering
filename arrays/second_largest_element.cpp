@@ -26,11 +26,7 @@ int second_largest_element(int *arr, int n)
         {
             largest = arr[i];
         }
-    }
-
-    for (int i = 0; i < n; i++)
-    {
-        if (arr[i] > second_largest && arr[i] < largest)
+        else if (arr[i] > second_largest && arr[i] < largest)
         {
             second_largest = arr[i];
         }
