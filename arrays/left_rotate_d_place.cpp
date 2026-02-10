@@ -3,6 +3,7 @@
 using namespace std;
 
 void left_rotate(int *, int, int);
+void left_rotate_in_place(vector<int> &, int);
 
 int main(int argc, char const *argv[])
 {
@@ -52,4 +53,18 @@ void left_rotate(int *arr, int n, int d)
 
         arr[i] = temp[j];
     }
+}
+
+void left_rotate_in_place(vector<int> &nums, int k)
+{
+    if (nums.size() == 0)
+    {
+        return;
+    }
+
+    k %= nums.size();
+
+    reverse(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.begin() + k);
+    reverse(nums.begin() + k, nums.end());
 }
