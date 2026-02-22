@@ -5,6 +5,9 @@ int max_subarray_sum_bf(int *, int);
 int max_subarray_sum_better(int *, int);
 int max_subarray_sum_optimal(int *, int);
 
+// Challenge
+void print_subarray_sum(int *, int);
+
 int main(int argc, char const *argv[])
 {
     int arr[] = {-2, -3, 4, -1, -2, 1, 5, -3};
@@ -13,6 +16,8 @@ int main(int argc, char const *argv[])
     cout << "Brute Force: " << max_subarray_sum_bf(arr, size) << endl;
     cout << "Better: " << max_subarray_sum_better(arr, size) << endl;
     cout << "Optimal (Kadane): " << max_subarray_sum_optimal(arr, size) << endl;
+
+    print_subarray_sum(arr, size);
 
     return 0;
 }
@@ -84,4 +89,38 @@ int max_subarray_sum_optimal(int *arr, int size)
     }
 
     return max_sum;
+}
+
+void print_subarray_sum(int *arr, int size)
+{
+    int sum = arr[0];
+    int max_sum = arr[0];
+
+    int start = 0, end = 0, temp_start = 0;
+
+    for (int i = 1; i < size; i++)
+    {
+        if (arr[i] > sum + arr[i])
+        {
+            sum = arr[i];
+            temp_start = i;
+        }
+        else
+        {
+            sum += arr[i];
+        }
+
+        if (sum > max_sum)
+        {
+            max_sum = sum;
+            start = temp_start;
+            end = i;
+        }
+    }
+
+    for (int i = start; i <= end; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 }
